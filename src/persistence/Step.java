@@ -1,18 +1,20 @@
 package persistence;
 
 public class Step {
-	
-	private int componet;
+	private String componet;
 	private String instruction;
 	
+	public Step(String componet, String instruction) {
+		this.componet = componet;
+		this.instruction = instruction;
+	}
 	
-	public int getComponet() {
+	public String getComponet() {
 		return componet;
 	}
-	public void setComponet(int componet) {
+	public void setComponet(String componet) {
 		this.componet = componet;
 	}
-	
 	public String getInstruction() {
 		return instruction;
 	}
