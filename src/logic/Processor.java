@@ -1,10 +1,6 @@
 package logic;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-import javax.swing.Timer;
 
 import gui.MainWindows;
 import persistence.Memory;
@@ -12,24 +8,27 @@ import persistence.Step;
 
 public class Processor {
 
-	Timer timer;
+	Thread thread;
 	Memory memory = new Memory();
 
-	public void loadProcess(String process) {
-		ArrayList<Step> steps = memory.readProcess(process);
-		for (int i = 0; i < steps.size(); i++) {
-			int element = i;
-			timer = new Timer(2000, new ActionListener() {
-
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					MainWindows.getInstancia().drawComponents(steps.get(element).getComponet());
-					MainWindows.getInstancia().drawInstructions(steps.get(element).getInstruction());
-
+	public void loadProcess(final String process) {
+		thread = new Thread() {
+			public void run() {
+				ArrayList<Step> steps = memory.readProcess(process);
+				for (int i = 0; i < steps.size(); i++) {
+					MainWindows.getInstancia().drawComponents(
+							steps.get(i).getComponet());
+					MainWindows.getInstancia().drawInstructions(
+							steps.get(i).getInstruction());
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException ex) {
+						Thread.currentThread().interrupt();
+					}
 				}
-			});
-			timer.start();
-		}
-		timer.stop();
+			}
+		};
+		thread.start();
+
 	}
 }
