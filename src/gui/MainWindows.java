@@ -6,11 +6,15 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -18,6 +22,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import logic.Evaluacion;
 import logic.Processor;
 
 public class MainWindows extends JFrame {
@@ -26,12 +31,18 @@ public class MainWindows extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	Processor processor = new Processor();
+	Evaluacion evaluacion;
 
 	private JLabel alu, d, ri, uc, pc, registro, ram, busDirecciones, busDatos, teclado, raton, monitor, impresora,
 			parlantes;
 	private JTextArea log;
 	private JButton process1, process2, process3, process4, process5, process6, process7, process8, process9, process0;
 	private JPanel panelAnimation, panelLog, panelProcess;
+
+	
+	JMenuBar barraMenu;//barra menú
+	JMenu menu;
+	JMenuItem probarMenuItem;
 
 	public MainWindows() {
 		setSize(1350, 730);
@@ -42,7 +53,8 @@ public class MainWindows extends JFrame {
 		setIconImage(new ImageIcon("").getImage());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		initComponents();
-		setVisible(true);
+		setVisible(true);		
+		evaluacion = new Evaluacion(this);
 	}
 
 	public static MainWindows getInstancia() {
@@ -68,6 +80,12 @@ public class MainWindows extends JFrame {
 		log.append(getTime() + line);
 		repaint();
 	}
+	
+	public void instruccionVacia(){
+		log.append("\n*********************************************************************************************");
+		log.append("\n");
+		repaint();
+	}
 
 	private String getTime() {
 		return "\n [ " + Calendar.getInstance().getTime() + " ] ";
@@ -75,6 +93,20 @@ public class MainWindows extends JFrame {
 
 	private void initComponents() {
 		Border border = BorderFactory.createLineBorder(Color.BLACK);
+		
+		barraMenu = new JMenuBar();
+		menu = new JMenu("Evaluación");
+		probarMenuItem = new JMenuItem("Evaluar");
+		probarMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				evaluacion.evaluar();
+			}
+		});
+		menu.add(probarMenuItem);
+		barraMenu.add(menu);
+		setJMenuBar(barraMenu);
 
 		// Panel 1 - animacion
 		panelAnimation = new JPanel();
@@ -217,6 +249,7 @@ public class MainWindows extends JFrame {
 		clean.setFocusable(false);
 		clean.setForeground(Color.GREEN);
 		clean.setBackground(Color.BLACK);
+		
 		clean.addActionListener(new ActionListener() {
 
 			@Override
@@ -239,7 +272,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process0.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process0.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process0.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -249,17 +286,28 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process1.getText().toLowerCase());
-
+				if (!evaluacion.isEvaluando()) {//si no está evaluando ejecuta su función por defecto
+					
+					processor.loadProcess(process1.getText().toLowerCase());
+					
+				}else{//se usa para la evalucación
+					evaluacion.responder(process1.getText().toLowerCase());
+				}
+				
 			}
 		});
 		process2 = new JButton("Proceso 2");
 		process2.setBackground(Color.WHITE);
+		
 		process2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process2.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process2.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process2.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -269,7 +317,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process3.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process3.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process3.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -279,7 +331,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process4.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process4.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process4.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -289,7 +345,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process5.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process5.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process5.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -299,7 +359,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process6.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process6.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process6.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -309,7 +373,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process7.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process7.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process7.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -319,7 +387,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process8.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process8.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process8.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -329,7 +401,11 @@ public class MainWindows extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processor.loadProcess(process9.getText().toLowerCase());
+				if (!evaluacion.isEvaluando()) {
+					processor.loadProcess(process9.getText().toLowerCase());
+				}else{//se usa para la evalucación
+					evaluacion.responder(process9.getText().toLowerCase());
+				}
 
 			}
 		});
@@ -349,4 +425,22 @@ public class MainWindows extends JFrame {
 	public static void main(String[] args) {
 		MainWindows.getInstancia();
 	}
+
+	public Processor getProcessor() {
+		return processor;
+	}
+
+	public void setProcessor(Processor processor) {
+		this.processor = processor;
+	}
+
+	public Evaluacion getEvaluacion() {
+		return evaluacion;
+	}
+
+	public void setEvaluacion(Evaluacion evaluacion) {
+		this.evaluacion = evaluacion;
+	}
+	
+	
 }

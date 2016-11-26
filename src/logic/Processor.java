@@ -18,8 +18,10 @@ public class Processor {
 				for (int i = 0; i < steps.size(); i++) {
 					MainWindows.getInstancia().drawComponents(
 							steps.get(i).getComponet());
+					
 					MainWindows.getInstancia().drawInstructions(
 							steps.get(i).getInstruction());
+					
 					try {
 						Thread.sleep(5000);
 					} catch (InterruptedException ex) {
@@ -31,4 +33,5 @@ public class Processor {
 		thread.start();
 
 	}
+	
 }
