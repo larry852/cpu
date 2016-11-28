@@ -12,10 +12,13 @@ public class Evaluador extends Thread{
 	Memory memory;
 	boolean mostrando;
 	String nombreProceso;
+	Evaluacion evaluacion;
 	
-	public Evaluador(){
+	
+	public Evaluador(Evaluacion evaluacion){
 		memory = new Memory();
 		mostrando = true;
+		this.evaluacion = evaluacion;
 	}
 	
 	public void evaluarProceso(String process){	
@@ -56,5 +59,6 @@ public class Evaluador extends Thread{
 				e.printStackTrace();
 			}
 		}
+		this.evaluacion.setEvaluando(false);
 	}
 }
