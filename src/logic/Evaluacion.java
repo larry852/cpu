@@ -13,6 +13,7 @@ public class Evaluacion {
 	boolean evaluando;//determina si se está evaluando o no. para que cuano esté evaluando para que los botones no hagan su funcion por defecto
 	final int CANTIDAD_PROCESOS = 2;//para hacer un random hasta la cantidad de procesos
 	String procesoEnEvaluacion;
+	int correctas, incorrectas;
 	ArrayList<Integer> secuencia = new ArrayList<Integer>();
 	
 	Evaluador evaluador;
@@ -21,16 +22,33 @@ public class Evaluacion {
 		this.ventanaPrincipal = ventanaPrincipal;
 		this.tipoEvaluacion = true;
 		this.evaluando = false;
+		correctas=0;
+		incorrectas=0;
 		this.evaluador = new Evaluador(this); 
 	}
 	
+	public int getCorrectas() {
+		return correctas;
+	}
+
+	public void setCorrectas(int correctas) {
+		this.correctas = correctas;
+	}
+
+	public int getIncorrectas() {
+		return incorrectas;
+	}
+
+	public void setIncorrectas(int incorrectas) {
+		this.incorrectas = incorrectas;
+	}
+
 	public void evaluar(){
 		this.evaluando = true;
-		int random = (int)(Math.random() * 2);
+		int random = (int) (Math.random() * 2);
 		if (random == 0) {//seleccionamos 
 			this.tipoEvaluacion = false;
-		}
-		else{
+		}else{
 			this.tipoEvaluacion = true;
 		}
 		if (tipoEvaluacion) {
@@ -43,58 +61,88 @@ public class Evaluacion {
 	
 	public void llenar(int proceso){
 		if (proceso == 0) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 1) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 2) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 3) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 4) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 5) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 6) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 7) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 8) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 		if (proceso == 9) {
+			secuencia.clear();
+			correctas=0;
+			incorrectas=0;
 			secuencia.add(1);
 			secuencia.add(2);
 			secuencia.add(3);
 		}
 	}
 	
-	public void comprobar(int dato){
+	public boolean comprobar(int dato){
 		int aux=0;
 		for (int i = 0; i < secuencia.size(); i++) {
 			if (dato == secuencia.get(i)) {
@@ -102,9 +150,11 @@ public class Evaluacion {
 			}
 		}
 		if (aux==1) {
-			
+			correctas++;
+			return true;
 		}else{
-			JOptionPane.showMessageDialog(null, "componente incorrecto");
+			incorrectas++;
+			return false;
 		}
 	}
 	
