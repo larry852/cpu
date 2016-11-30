@@ -115,7 +115,7 @@ public class MainWindows extends JFrame implements MouseListener {
 		Border border = BorderFactory.createLineBorder(Color.BLACK);
 
 		barraMenu = new JMenuBar();
-		menu = new JMenu("Evaluaci�n");
+		menu = new JMenu("Evaluación");
 		probarMenuItem = new JMenuItem("Evaluar");
 		probarMenuItem.addActionListener(new ActionListener() {
 
@@ -294,7 +294,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 		// Panel 3 - Seleccion de procesos
 		panelProcess = new JPanel();
-		panelProcess.setBounds(10, 420, 1330, 270);
+		panelProcess.setBounds(10, 420, 1330, 250);
 		panelProcess.setLayout(new GridLayout(2, 0));
 		add(panelProcess);
 
