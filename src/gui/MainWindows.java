@@ -37,13 +37,12 @@ public class MainWindows extends JFrame implements MouseListener {
 	Evaluacion evaluacion;
 
 	private JLabel alu, d, ri, uc, pc, registro, ram, busDirecciones, busDatos, teclado, raton, monitor, impresora,
-	parlantes;
+			parlantes;
 	private JTextArea log;
 	private JButton process1, process2, process3, process4, process5, process6, process7, process8, process9, process0;
 	private JPanel panelAnimation, panelLog, panelProcess;
 
-
-	JMenuBar barraMenu;//barra menú
+	JMenuBar barraMenu;// barra menï¿½
 	JMenu menu;
 	JMenuItem probarMenuItem;
 
@@ -58,9 +57,9 @@ public class MainWindows extends JFrame implements MouseListener {
 		setIconImage(new ImageIcon("").getImage());
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		initComponents();
-		setVisible(true);		
+		setVisible(true);
 		evaluacion = new Evaluacion(this);
-		count=0;
+		count = 0;
 	}
 
 	public static MainWindows getInstancia() {
@@ -87,7 +86,7 @@ public class MainWindows extends JFrame implements MouseListener {
 		repaint();
 	}
 
-	public void Again(){
+	public void Again() {
 		alu.setBackground(Color.BLUE);
 		pc.setBackground(Color.BLUE);
 		ri.setBackground(Color.BLUE);
@@ -102,7 +101,7 @@ public class MainWindows extends JFrame implements MouseListener {
 		parlantes.setBackground(Color.BLUE);
 	}
 
-	public void instruccionVacia(){
+	public void instruccionVacia() {
 		log.append("\n*********************************************************************************************");
 		log.append("\n");
 		repaint();
@@ -116,7 +115,7 @@ public class MainWindows extends JFrame implements MouseListener {
 		Border border = BorderFactory.createLineBorder(Color.BLACK);
 
 		barraMenu = new JMenuBar();
-		menu = new JMenu("Evaluación");
+		menu = new JMenu("Evaluaciï¿½n");
 		probarMenuItem = new JMenuItem("Evaluar");
 		probarMenuItem.addActionListener(new ActionListener() {
 
@@ -305,12 +304,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(0);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process0.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process0.getText().toLowerCase());
 					}
 				}
@@ -322,12 +321,14 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(1);
-				}else{
-					if (!evaluacion.isEvaluando()) {//si no está evaluando ejecuta su función por defecto
+				} else {
+					if (!evaluacion.isEvaluando()) {// si no estï¿½ evaluando
+													// ejecuta su funciï¿½n por
+													// defecto
 						processor.loadProcess(process1.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process1.getText().toLowerCase());
 					}
 				}
@@ -341,12 +342,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(2);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process2.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process2.getText().toLowerCase());
 
 					}
@@ -359,12 +360,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(3);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process3.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process3.getText().toLowerCase());
 					}
 				}
@@ -376,12 +377,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(4);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process4.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process4.getText().toLowerCase());
 					}
 				}
@@ -393,12 +394,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(5);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process5.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process5.getText().toLowerCase());
 					}
 				}
@@ -410,12 +411,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(6);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process6.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process6.getText().toLowerCase());
 					}
 				}
@@ -427,12 +428,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(7);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process7.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process7.getText().toLowerCase());
 					}
 				}
@@ -444,12 +445,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(8);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process8.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process8.getText().toLowerCase());
 					}
 				}
@@ -461,12 +462,12 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion()==false) {
+				if (evaluacion.getTipoEvaluacion() == false) {
 					evaluacion.llenar(9);
-				}else{
+				} else {
 					if (!evaluacion.isEvaluando()) {
 						processor.loadProcess(process9.getText().toLowerCase());
-					}else{//se usa para la evalucación
+					} else {// se usa para la evalucaciï¿½n
 						evaluacion.responder(process9.getText().toLowerCase());
 					}
 				}
@@ -485,7 +486,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		panelProcess.add(process9);
 
 	}
-
 
 	public static void main(String[] args) {
 		MainWindows.getInstancia();
@@ -522,7 +522,6 @@ public class MainWindows extends JFrame implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent evento) {
 
-
 	}
 
 	@Override
@@ -537,107 +536,109 @@ public class MainWindows extends JFrame implements MouseListener {
 			if (evaluacion.comprobar(1) == true) {
 				alu.setBackground(Color.RED);
 				count++;
-			}else{
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == pc) {
-			if (evaluacion.comprobar(2)==true) {
+			if (evaluacion.comprobar(2) == true) {
 				pc.setBackground(Color.RED);
 				count++;
-			}else{
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == ri) {
-			if (evaluacion.comprobar(3)==true) {
+			if (evaluacion.comprobar(3) == true) {
 				ri.setBackground(Color.RED);
-				count++;			
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == d) {
-			if (evaluacion.comprobar(4)==true) {
+			if (evaluacion.comprobar(4) == true) {
 				d.setBackground(Color.RED);
 				count++;
-			}else{
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == uc) {
-			if (evaluacion.comprobar(5)==true) {
+			if (evaluacion.comprobar(5) == true) {
 				uc.setBackground(Color.RED);
-				count++;				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == registro) {
-			if (evaluacion.comprobar(6)==true) {
+			if (evaluacion.comprobar(6) == true) {
 				registro.setBackground(Color.RED);
-				count++;				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == ram) {
-			if (evaluacion.comprobar(7)==true) {
+			if (evaluacion.comprobar(7) == true) {
 				ram.setBackground(Color.RED);
-				count++;				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == teclado) {
-			if (evaluacion.comprobar(8)==true) {
+			if (evaluacion.comprobar(8) == true) {
 				teclado.setBackground(Color.RED);
-				count++;				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == raton) {
-			if (evaluacion.comprobar(9)==true) {
+			if (evaluacion.comprobar(9) == true) {
 				raton.setBackground(Color.RED);
-				count++;				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == monitor) {
-			if (evaluacion.comprobar(10)==true) {
+			if (evaluacion.comprobar(10) == true) {
 				monitor.setBackground(Color.RED);
-				count++; 				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == impresora) {
-			if (evaluacion.comprobar(11)==true) {
+			if (evaluacion.comprobar(11) == true) {
 				impresora.setBackground(Color.RED);
-				count++;				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (evento.getSource() == parlantes) {
-			if (evaluacion.comprobar(12)==true) {
+			if (evaluacion.comprobar(12) == true) {
 				parlantes.setBackground(Color.RED);
-				count++;				
-			}else{
+				count++;
+			} else {
 				JOptionPane.showMessageDialog(null, "componente incorrecto");
 			}
 		}
 		if (count == evaluacion.getSecuencia().size()) {
-			float resultado =  (evaluacion.getCorrectas()*100)/(evaluacion.getCorrectas()+evaluacion.getIncorrectas());
-			JOptionPane.showMessageDialog(null, "aciertos: "+evaluacion.getCorrectas() + "  Fallidos: "+evaluacion.getIncorrectas()
-			+"  Puntuacion(0 - 10): "+(resultado/10) +"\nSeleccione otro proceso que quiera evaluar");
+			float resultado = (evaluacion.getCorrectas() * 100)
+					/ (evaluacion.getCorrectas() + evaluacion.getIncorrectas());
+			JOptionPane.showMessageDialog(null,
+					"aciertos: " + evaluacion.getCorrectas() + "  Fallidos: " + evaluacion.getIncorrectas()
+							+ "  Puntuacion(0 - 10): " + (resultado / 10)
+							+ "\nSeleccione otro proceso que quiera evaluar");
 			Again();
-			count=0;
-						evaluacion.setEvaluando(false);
+			count = 0;
+			evaluacion.setEvaluando(false);
 		}
 	}
-
 
 }

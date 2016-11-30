@@ -11,7 +11,7 @@ public class Memory {
 		String line;
 		FileReader f;
 		try {
-			f = new FileReader("procesos/"+process);
+			f = new FileReader("procesos/" + process);
 			BufferedReader b = new BufferedReader(f);
 			while ((line = b.readLine()) != null) {
 				String[] parts = line.split("-");
@@ -24,7 +24,7 @@ public class Memory {
 			System.err.println("Error al leer: " + process);
 			System.err.println("Error: " + e);
 		}
-		
+
 		return steps;
 	}
 
