@@ -102,7 +102,7 @@ public class MainWindows extends JFrame implements MouseListener {
 	}
 
 	public void instruccionVacia() {
-		log.append("\n*********************************************************************************************");
+		log.append("\n**************************************************************************");
 		log.append("\n");
 		repaint();
 	}
@@ -298,7 +298,8 @@ public class MainWindows extends JFrame implements MouseListener {
 		panelProcess.setLayout(new GridLayout(2, 0));
 		add(panelProcess);
 
-		process0 = new JButton("Proceso 0");
+		process0 = new JButton("Mover mouse");
+		process0.setName("Proceso 0");
 		process0.setBackground(Color.WHITE);
 		process0.addActionListener(new ActionListener() {
 
@@ -308,14 +309,15 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(0);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process0.getText().toLowerCase());
+						processor.loadProcess(process0.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process0.getText().toLowerCase());
+						evaluacion.responder(process0.getName().toLowerCase());
 					}
 				}
 			}
 		});
-		process1 = new JButton("Proceso 1");
+		process1 = new JButton("Hacer click derecho");
+		process1.setName("Proceso 1");
 		process1.setBackground(Color.WHITE);
 		process1.addActionListener(new ActionListener() {
 
@@ -327,17 +329,17 @@ public class MainWindows extends JFrame implements MouseListener {
 					if (!evaluacion.isEvaluando()) {// si no est� evaluando
 													// ejecuta su funci�n por
 													// defecto
-						processor.loadProcess(process1.getText().toLowerCase());
+						processor.loadProcess(process1.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process1.getText().toLowerCase());
+						evaluacion.responder(process1.getName().toLowerCase());
 					}
 				}
 
 			}
 		});
-		process2 = new JButton("Proceso 2");
+		process2 = new JButton("Iniciar un programa");
+		process2.setName("Proceso 2");
 		process2.setBackground(Color.WHITE);
-
 		process2.addActionListener(new ActionListener() {
 
 			@Override
@@ -346,15 +348,16 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(2);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process2.getText().toLowerCase());
+						processor.loadProcess(process2.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process2.getText().toLowerCase());
+						evaluacion.responder(process2.getName().toLowerCase());
 
 					}
 				}
 			}
 		});
-		process3 = new JButton("Proceso 3");
+		process3 = new JButton("Guardar archivo");
+		process3.setName("Proceso 3");
 		process3.setBackground(Color.WHITE);
 		process3.addActionListener(new ActionListener() {
 
@@ -364,14 +367,15 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(3);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process3.getText().toLowerCase());
+						processor.loadProcess(process3.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process3.getText().toLowerCase());
+						evaluacion.responder(process3.getName().toLowerCase());
 					}
 				}
 			}
 		});
-		process4 = new JButton("Proceso 4");
+		process4 = new JButton("Presionar F1");
+		process4.setName("Proceso 4");
 		process4.setBackground(Color.WHITE);
 		process4.addActionListener(new ActionListener() {
 
@@ -381,14 +385,15 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(4);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process4.getText().toLowerCase());
+						processor.loadProcess(process4.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process4.getText().toLowerCase());
+						evaluacion.responder(process4.getName().toLowerCase());
 					}
 				}
 			}
 		});
-		process5 = new JButton("Proceso 5");
+		process5 = new JButton("Reproducir audio");
+		process5.setName("Proceso 5");
 		process5.setBackground(Color.WHITE);
 		process5.addActionListener(new ActionListener() {
 
@@ -398,14 +403,15 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(5);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process5.getText().toLowerCase());
+						processor.loadProcess(process5.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process5.getText().toLowerCase());
+						evaluacion.responder(process5.getName().toLowerCase());
 					}
 				}
 			}
 		});
-		process6 = new JButton("Proceso 6");
+		process6 = new JButton("Reproducir video");
+		process6.setName("Proceso 6");
 		process6.setBackground(Color.WHITE);
 		process6.addActionListener(new ActionListener() {
 
@@ -415,14 +421,15 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(6);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process6.getText().toLowerCase());
+						processor.loadProcess(process6.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process6.getText().toLowerCase());
+						evaluacion.responder(process6.getName().toLowerCase());
 					}
 				}
 			}
 		});
-		process7 = new JButton("Proceso 7");
+		process7 = new JButton("Busqueda de datos");
+		process7.setName("Proceso 7");
 		process7.setBackground(Color.WHITE);
 		process7.addActionListener(new ActionListener() {
 
@@ -432,14 +439,15 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(7);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process7.getText().toLowerCase());
+						processor.loadProcess(process7.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process7.getText().toLowerCase());
+						evaluacion.responder(process7.getName().toLowerCase());
 					}
 				}
 			}
 		});
-		process8 = new JButton("Proceso 8");
+		process8 = new JButton("Imprimir archivo");
+		process8.setName("Proceso 8");
 		process8.setBackground(Color.WHITE);
 		process8.addActionListener(new ActionListener() {
 
@@ -449,14 +457,15 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(8);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process8.getText().toLowerCase());
+						processor.loadProcess(process8.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process8.getText().toLowerCase());
+						evaluacion.responder(process8.getName().toLowerCase());
 					}
 				}
 			}
 		});
-		process9 = new JButton("Proceso 9");
+		process9 = new JButton("Sumar dos numeros");
+		process9.setName("Proceso 9");
 		process9.setBackground(Color.WHITE);
 		process9.addActionListener(new ActionListener() {
 
@@ -466,9 +475,9 @@ public class MainWindows extends JFrame implements MouseListener {
 					evaluacion.llenar(9);
 				} else {
 					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process9.getText().toLowerCase());
+						processor.loadProcess(process9.getName().toLowerCase());
 					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process9.getText().toLowerCase());
+						evaluacion.responder(process9.getName().toLowerCase());
 					}
 				}
 			}
