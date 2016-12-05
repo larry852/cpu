@@ -1,0 +1,54 @@
+PC-mov ah,01h ;Funcion de inicializar impresora 
+UC-mov ah,01h ;
+RI-mov ah,01h ;
+D-mov ah,01h ;
+UC-mov ah,01h ;
+REGISTRO-mov ah,01h ;
+PC-int 17h
+UC-int 17h
+RI-int 17h
+D-int 17h
+UC-int 17h
+BUS DE DATOS-int 17h
+IMPRESORA-int 17h 
+PC-loop: lodsb ;Cargamos la etiqueta en si 
+UC-loop: lodsb ;
+RI-loop: lodsb ;
+D-loop: lodsb ;
+UC-loop: lodsb ;
+PC-or al,al;¿Llegamos al final?
+UC-or al,al;
+RI-or al,al;
+D-or al,al;
+UC-or al,al;
+BUS DE DATOS-or al,al;
+ALU-or al,al;
+BUS DE DATOS-or al,al;
+D-or al,al;
+PC-loop: lodsb ;Cargamos la etiqueta en si 
+UC-loop: lodsb ;
+RI-loop: lodsb ;
+D-loop: lodsb ;
+UC-loop: lodsb ;
+PC-or al,al;¿Llegamos al final?
+UC-or al,al;
+RI-or al,al;
+D-or al,al;
+UC-or al,al;
+BUS DE DATOS-or al,al;
+ALU-or al,al;
+BUS DE DATOS-or al,al;
+D-or al,al;
+PC-mov ah,00h ;Funcion de escribir en impresora (AL tiene el caracter a imprimir) 
+ALU-mov ah,00h ;
+RI-mov ah,00h ;
+D-mov ah,00h ;
+ALU-mov ah,00h ;
+REGISTRO-mov ah,00h ;
+PC-int 17h ¡IMPRIMIMOS! 
+UC-int 17h
+RI-int 17h
+D-int 17h
+UC-int 17h
+BUS DE DATOS-int 17h
+IMPRESORA-int 17h

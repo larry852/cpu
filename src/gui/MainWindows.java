@@ -269,7 +269,7 @@ public class MainWindows extends JFrame {
 				processor.loadProcess(process1.getName().toLowerCase());
 			}
 		});
-		process2 = new JButton("Iniciar un programa");
+		process2 = new JButton("Iniciar un programa con enter");
 		process2.setName("Proceso 2");
 		process2.setBackground(Color.WHITE);
 		process2.addActionListener(new ActionListener() {
@@ -329,7 +329,7 @@ public class MainWindows extends JFrame {
 				processor.loadProcess(process7.getName().toLowerCase());
 			}
 		});
-		process8 = new JButton("Imprimir archivo");
+		process8 = new JButton("Imprimir archivo PDF");
 		process8.setName("Proceso 8");
 		process8.setBackground(Color.WHITE);
 		process8.addActionListener(new ActionListener() {
@@ -339,7 +339,7 @@ public class MainWindows extends JFrame {
 				processor.loadProcess(process8.getName().toLowerCase());
 			}
 		});
-		process9 = new JButton("Sumar dos numeros");
+		process9 = new JButton("Sumar dos numeros positivos");
 		process9.setName("Proceso 9");
 		process9.setBackground(Color.WHITE);
 		process9.addActionListener(new ActionListener() {

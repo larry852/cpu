@@ -1,0 +1,20 @@
+TECLADO- int 21
+BUS DE DATOS-int 21
+RI-int 21
+D-int 21
+UC-int 21
+PC-cmp al,0dh ;0dh es el código hexadecimal del Enter, compara si el la tecla presionada fue un Enter.
+UC-cmp al,0dh ;
+D-cmp al,0dh ;
+RI-cmp al,0dh ;
+UC-cmp al,0dh ;
+BUS DE DATOS-cmp al,0dh ;
+ALU-cmp al,0dh ;
+BUS DE DATOS-cmp al,0dh ;
+UC-cmp al,0dh ;
+PC-lds r2,$FF00 ; Carga el programa en la locación $FF00
+D-lds r2,$FF00 ;
+RI-lds r2,$FF00 ;
+UC-lds r2,$FF00 ;
+BUS DE DATOS-lds r2,$FF00 ;
+RAM-lds r2,$FF00 ;

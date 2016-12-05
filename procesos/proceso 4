@@ -1,0 +1,12 @@
+TECLADO-Lectura de la tecla, en este caso f1.
+BUS DE DATOS-transmision de dato al registro
+UC-Petición de interrupción
+REGISTRO-mov ah,0ah
+BUS DE DATOS-mov dx,offset bufnum1
+RAM-ah=1
+UC-int 21h petición interrupción.
+BUS DE DATOS-envía datos a procesador.
+RI-lectura de valor.
+REGISTRO-lectura de memoria principal (depende del SO) en búsqueda de la función.
+BUS DE DATOS-transferencia peticion memoria secundaria
+RAM-Carga comandos pertinentes a la funcion

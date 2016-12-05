@@ -1,0 +1,18 @@
+REGISTRO-mov ah,3dh 
+UC-mov al, 00h 
+PC- int 21h 
+UC- mov handle,ax 
+BUS DE DATOS-envio lectura al registro
+REGISTRO- mov ah,40h 
+REGISTRO-mov bx,handle 
+REGISTRO-mov cx,numbytes 
+RAM- lea dx,databuffer 
+UC-int 21h interrupción lectura del byte
+REGISTRO-mov ah,3fh 
+REGISTRO-mov bx,handle 
+REGISTRO-mov cx,numbytes 
+RAM-lea dx,databuffer 
+UC-int 21h 
+REGISTRO-mov ah,3eh 
+RAM-mov bx,handle 
+UC-int 21h 

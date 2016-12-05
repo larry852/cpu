@@ -1,0 +1,44 @@
+TECLADO-mov ah, 01h ;Leer carácter desde el teclado
+BUS DE DATOS-mov ah, 01h
+D-mov ah, 01h
+PC-mov ah, 01h
+UC-mov ah, 01h
+RI-mov ah, 01h
+REGISTRO-mov ah, 01h
+PC-sub al, 30h ;Resto 30H (48Dec) para obtener el numero
+UC-sub al, 30h
+RI-sub al, 30h
+D-sub al, 30h
+BUS DE DATOS-sub al, 30h
+ALU-sub al, 30h
+PC-mov bl, al ;Lo guardo en registro bl
+UC-mov bl, al ;
+RI-mov bl, al ;
+D-mov bl, al ;
+UC-sub al, 30h
+REGISTRO-mov bl, al ;
+TECLADO-mov ah, 01h ;Leer carácter desde el teclado
+BUS DE DATOS-mov ah, 01h
+D-mov ah, 01h
+PC-mov ah, 01h
+UC-mov ah, 01h
+RI-mov ah, 01h
+D-mov ah, 01h
+UC-mov ah, 01h
+REGISTRO-mov ah, 01h
+PC- sub al, 30h ;Resto 30H (48Dec) para obtener segundo valor
+UC-sub al, 30h
+RI-sub al, 30h
+D-sub al, 30h
+BUS DE DATOS-sub al, 30h
+ALU-sub al, 30h
+PC- add al, bl ;Realizo la suma de los dos valores
+UC- add al, bl ;
+RI- add al, bl ;
+ALU-add al, bl ;
+PC-mov dl, al ;Pongo en dl el número a imprimir
+UC-mov dl, al
+RI-mov dl, al
+D-mov dl, al
+UC-mov dl, al
+REGISTRO-mov dl, al
