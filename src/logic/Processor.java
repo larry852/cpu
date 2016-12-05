@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import gui.MainWindows;
 import persistence.Memory;
 import persistence.Step;
-import sun.management.resources.agent_it;
 
 public class Processor {
 
@@ -26,7 +25,7 @@ public class Processor {
 						Thread.currentThread().interrupt();
 					}
 				}
-				MainWindows.getInstancia().Again();
+				MainWindows.getInstancia().again();
 				thread.interrupt();
 			}
 		};

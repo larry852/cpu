@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Memory {
 
 	public ArrayList<Step> readProcess(String process) {
@@ -23,6 +25,7 @@ public class Memory {
 		} catch (Exception e) {
 			System.err.println("Error al leer: " + process);
 			System.err.println("Error: " + e);
+			JOptionPane.showMessageDialog(null, "Error al leer el proceso " + process + ". Verifique su estado.");
 		}
 
 		return steps;

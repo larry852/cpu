@@ -5,19 +5,12 @@ import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.Calendar;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -25,28 +18,20 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import logic.Evaluacion;
 import logic.Processor;
 
-public class MainWindows extends JFrame implements MouseListener {
+public class MainWindows extends JFrame {
 
 	static MainWindows instancia = null;
 	private static final long serialVersionUID = 1L;
 
 	Processor processor = new Processor();
-	Evaluacion evaluacion;
 
 	private JLabel alu, d, ri, uc, pc, registro, ram, busDirecciones, busDatos, teclado, raton, monitor, impresora,
 			parlantes;
 	private JTextArea log;
 	private JButton process1, process2, process3, process4, process5, process6, process7, process8, process9, process0;
 	private JPanel panelAnimation, panelLog, panelProcess;
-
-	JMenuBar barraMenu;// barra men�
-	JMenu menu;
-	JMenuItem probarMenuItem;
-
-	int count;
 
 	public MainWindows() {
 		setSize(1350, 730);
@@ -58,8 +43,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		initComponents();
 		setVisible(true);
-		evaluacion = new Evaluacion(this);
-		count = 0;
 	}
 
 	public static MainWindows getInstancia() {
@@ -86,7 +69,7 @@ public class MainWindows extends JFrame implements MouseListener {
 		repaint();
 	}
 
-	public void Again() {
+	public void again() {
 		alu.setBackground(Color.BLUE);
 		pc.setBackground(Color.BLUE);
 		ri.setBackground(Color.BLUE);
@@ -101,32 +84,12 @@ public class MainWindows extends JFrame implements MouseListener {
 		parlantes.setBackground(Color.BLUE);
 	}
 
-	public void instruccionVacia() {
-		log.append("\n**************************************************************************");
-		log.append("\n");
-		repaint();
-	}
-
 	private String getTime() {
 		return "\n [ " + Calendar.getInstance().getTime() + " ] ";
 	}
 
 	private void initComponents() {
 		Border border = BorderFactory.createLineBorder(Color.BLACK);
-
-		barraMenu = new JMenuBar();
-		menu = new JMenu("Evaluación");
-		probarMenuItem = new JMenuItem("Evaluar");
-		probarMenuItem.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				evaluacion.evaluar();
-			}
-		});
-		menu.add(probarMenuItem);
-		barraMenu.add(menu);
-		setJMenuBar(barraMenu);
 
 		// Panel 1 - animacion
 		panelAnimation = new JPanel();
@@ -141,7 +104,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		alu.setOpaque(true);
 		alu.setForeground(Color.WHITE);
 		alu.setBackground(Color.BLUE);
-		alu.addMouseListener(this);
 		panelAnimation.add(alu);
 
 		d = new JLabel("D", SwingConstants.CENTER);
@@ -150,7 +112,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		d.setOpaque(true);
 		d.setForeground(Color.WHITE);
 		d.setBackground(Color.BLUE);
-		d.addMouseListener(this);
 		panelAnimation.add(d);
 
 		ri = new JLabel("RI", SwingConstants.CENTER);
@@ -159,7 +120,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		ri.setOpaque(true);
 		ri.setForeground(Color.WHITE);
 		ri.setBackground(Color.BLUE);
-		ri.addMouseListener(this);
 		panelAnimation.add(ri);
 
 		uc = new JLabel("UC", SwingConstants.CENTER);
@@ -168,7 +128,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		uc.setOpaque(true);
 		uc.setForeground(Color.WHITE);
 		uc.setBackground(Color.BLUE);
-		uc.addMouseListener(this);
 		panelAnimation.add(uc);
 
 		pc = new JLabel("PC", SwingConstants.CENTER);
@@ -177,7 +136,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		pc.setOpaque(true);
 		pc.setForeground(Color.WHITE);
 		pc.setBackground(Color.BLUE);
-		pc.addMouseListener(this);
 		panelAnimation.add(pc);
 
 		registro = new JLabel("REGISTRO", SwingConstants.CENTER);
@@ -186,7 +144,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		registro.setOpaque(true);
 		registro.setForeground(Color.WHITE);
 		registro.setBackground(Color.BLUE);
-		registro.addMouseListener(this);
 		panelAnimation.add(registro);
 
 		ram = new JLabel("RAM", SwingConstants.CENTER);
@@ -195,7 +152,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		ram.setOpaque(true);
 		ram.setForeground(Color.WHITE);
 		ram.setBackground(Color.BLUE);
-		ram.addMouseListener(this);
 		panelAnimation.add(ram);
 
 		busDirecciones = new JLabel("BUS DE DIRECCIONES", SwingConstants.CENTER);
@@ -220,7 +176,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		teclado.setOpaque(true);
 		teclado.setForeground(Color.WHITE);
 		teclado.setBackground(Color.BLUE);
-		teclado.addMouseListener(this);
 		panelAnimation.add(teclado);
 
 		raton = new JLabel("RATON", SwingConstants.CENTER);
@@ -229,7 +184,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		raton.setOpaque(true);
 		raton.setForeground(Color.WHITE);
 		raton.setBackground(Color.BLUE);
-		raton.addMouseListener(this);
 		panelAnimation.add(raton);
 
 		monitor = new JLabel("MONITOR", SwingConstants.CENTER);
@@ -238,7 +192,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		monitor.setOpaque(true);
 		monitor.setForeground(Color.WHITE);
 		monitor.setBackground(Color.BLUE);
-		monitor.addMouseListener(this);
 		panelAnimation.add(monitor);
 
 		impresora = new JLabel("IMPRESORA", SwingConstants.CENTER);
@@ -247,7 +200,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		impresora.setOpaque(true);
 		impresora.setForeground(Color.WHITE);
 		impresora.setBackground(Color.BLUE);
-		impresora.addMouseListener(this);
 		panelAnimation.add(impresora);
 
 		parlantes = new JLabel("PARLANTES", SwingConstants.CENTER);
@@ -256,7 +208,6 @@ public class MainWindows extends JFrame implements MouseListener {
 		parlantes.setOpaque(true);
 		parlantes.setForeground(Color.WHITE);
 		parlantes.setBackground(Color.BLUE);
-		parlantes.addMouseListener(this);
 		panelAnimation.add(parlantes);
 
 		// Panel 2 - Log
@@ -294,7 +245,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 		// Panel 3 - Seleccion de procesos
 		panelProcess = new JPanel();
-		panelProcess.setBounds(10, 420, 1330, 250);
+		panelProcess.setBounds(10, 420, 1330, 270);
 		panelProcess.setLayout(new GridLayout(2, 0));
 		add(panelProcess);
 
@@ -305,15 +256,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(0);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process0.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process0.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process0.getName().toLowerCase());
 			}
 		});
 		process1 = new JButton("Hacer click derecho");
@@ -323,18 +266,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(1);
-				} else {
-					if (!evaluacion.isEvaluando()) {// si no est� evaluando
-													// ejecuta su funci�n por
-													// defecto
-						processor.loadProcess(process1.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process1.getName().toLowerCase());
-					}
-				}
-
+				processor.loadProcess(process1.getName().toLowerCase());
 			}
 		});
 		process2 = new JButton("Iniciar un programa");
@@ -344,16 +276,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(2);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process2.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process2.getName().toLowerCase());
-
-					}
-				}
+				processor.loadProcess(process2.getName().toLowerCase());
 			}
 		});
 		process3 = new JButton("Guardar archivo");
@@ -363,15 +286,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(3);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process3.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process3.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process3.getName().toLowerCase());
 			}
 		});
 		process4 = new JButton("Presionar F1");
@@ -381,15 +296,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(4);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process4.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process4.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process4.getName().toLowerCase());
 			}
 		});
 		process5 = new JButton("Reproducir audio");
@@ -399,15 +306,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(5);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process5.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process5.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process5.getName().toLowerCase());
 			}
 		});
 		process6 = new JButton("Reproducir video");
@@ -417,15 +316,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(6);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process6.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process6.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process6.getName().toLowerCase());
 			}
 		});
 		process7 = new JButton("Busqueda de datos");
@@ -435,15 +326,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(7);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process7.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process7.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process7.getName().toLowerCase());
 			}
 		});
 		process8 = new JButton("Imprimir archivo");
@@ -453,15 +336,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(8);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process8.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process8.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process8.getName().toLowerCase());
 			}
 		});
 		process9 = new JButton("Sumar dos numeros");
@@ -471,15 +346,7 @@ public class MainWindows extends JFrame implements MouseListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (evaluacion.getTipoEvaluacion() == false) {
-					evaluacion.llenar(9);
-				} else {
-					if (!evaluacion.isEvaluando()) {
-						processor.loadProcess(process9.getName().toLowerCase());
-					} else {// se usa para la evalucaci�n
-						evaluacion.responder(process9.getName().toLowerCase());
-					}
-				}
+				processor.loadProcess(process9.getName().toLowerCase());
 			}
 		});
 
@@ -499,155 +366,4 @@ public class MainWindows extends JFrame implements MouseListener {
 	public static void main(String[] args) {
 		MainWindows.getInstancia();
 	}
-
-	public Processor getProcessor() {
-		return processor;
-	}
-
-	public void setProcessor(Processor processor) {
-		this.processor = processor;
-	}
-
-	public Evaluacion getEvaluacion() {
-		return evaluacion;
-	}
-
-	public void setEvaluacion(Evaluacion evaluacion) {
-		this.evaluacion = evaluacion;
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mousePressed(MouseEvent evento) {
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent evento) {
-		if (evento.getSource() == alu) {
-			if (evaluacion.comprobar(1) == true) {
-				alu.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == pc) {
-			if (evaluacion.comprobar(2) == true) {
-				pc.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == ri) {
-			if (evaluacion.comprobar(3) == true) {
-				ri.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == d) {
-			if (evaluacion.comprobar(4) == true) {
-				d.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == uc) {
-			if (evaluacion.comprobar(5) == true) {
-				uc.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == registro) {
-			if (evaluacion.comprobar(6) == true) {
-				registro.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == ram) {
-			if (evaluacion.comprobar(7) == true) {
-				ram.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == teclado) {
-			if (evaluacion.comprobar(8) == true) {
-				teclado.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == raton) {
-			if (evaluacion.comprobar(9) == true) {
-				raton.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == monitor) {
-			if (evaluacion.comprobar(10) == true) {
-				monitor.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == impresora) {
-			if (evaluacion.comprobar(11) == true) {
-				impresora.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (evento.getSource() == parlantes) {
-			if (evaluacion.comprobar(12) == true) {
-				parlantes.setBackground(Color.RED);
-				count++;
-			} else {
-				JOptionPane.showMessageDialog(null, "componente incorrecto");
-			}
-		}
-		if (count == evaluacion.getSecuencia().size()) {
-			float resultado = (evaluacion.getCorrectas() * 100)
-					/ (evaluacion.getCorrectas() + evaluacion.getIncorrectas());
-			JOptionPane.showMessageDialog(null,
-					"aciertos: " + evaluacion.getCorrectas() + "  Fallidos: " + evaluacion.getIncorrectas()
-							+ "  Puntuacion(0 - 10): " + (resultado / 10)
-							+ "\nSeleccione otro proceso que quiera evaluar");
-			Again();
-			count = 0;
-			evaluacion.setEvaluando(false);
-		}
-	}
-
 }
